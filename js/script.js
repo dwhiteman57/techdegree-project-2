@@ -17,7 +17,6 @@ const page = document.querySelectorAll('.page');
 let startingPage = 1;
 
 
-
 /***
    Create the `showPage` function
 ***/
@@ -38,24 +37,43 @@ showPage(studentItems, startingPage);
    functionality to the pagination buttons.
 ***/
 
-const appendPageLinks = (list) => {
+const appendPageLinks = (list, pageItems) => {
   // 1. Determine how many pages are needed for the list by dividing the total number
   //of list items by the max number of items per page
+  const pagesNeeded = Math.ciel(list.length / pageItems);
 
-  // 2. Create a dive, give it the pagination class, and append it to the .page dive
+  // 2. Create a div, give it the pagination class, and append it to the .page div
+  const paginationDiv = document.createElement('div');
+  paginationDiv.classList.add('pagination');
 
-  // 3. Add a ul to the pagination div for every pages
+  // 3. Add a ul to the pagination div for every page
+  const ul = document.createElement('ul');
+  let addUl = document.getElementsByClassName('pagination');
+  addUl.appendChild('ul');
 
   // 4. Add li and anchor(a) tags with the page number text
+  for (let i = 1; i <= pagesNeeded; i++) {
+    let li = document.createElement('li');
+    ul.appendChild(li);
+    let a = document.createElement('a');
+    li.appendChild(a);
+    }
+  a.innerText = i;
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
+    a.addEventListener('Click', e => {
+      e.target.classList.add('active');
+      showPage(list, pageItems);
+    });
 
   // 6. Loop over pagination links to remove active class from all links
-
+    for (let i = 0; i < paginationDiv.length; i++) {
+      e.target.classList.remove('active');
+    }
   // 7. Add the active class to the link that was just clicked. You can identify that clicked
   // link using event.target
-
+    e.target.classList.add('active');
 }
 
 
