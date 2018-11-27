@@ -31,8 +31,6 @@ const showPage = (list, page) => {
   }
 }
 
-showPage(studentItems, startingPage);
-
 /***
    Create the `appendPageLinks function` to generate, append, and add
    functionality to the pagination buttons.
@@ -41,11 +39,12 @@ showPage(studentItems, startingPage);
 const appendPageLinks = (list, pageItems) => {
   // 1. Determine how many pages are needed for the list by dividing the total number
   //of list items by the max number of items per page
-  const pagesNeeded = Math.ceil(list.length / pageItems);
+  const pagesNeeded = Math.ceil(list.length / 10);
 
   // 2. Create a div, give it the pagination class, and append it to the .page div
   const paginationDiv = document.createElement('div');
   paginationDiv.classList.add('pagination');
+  page.appendChild(paginationDiv);
 
   // 3. Add a ul to the pagination div for every page
   const ul = document.createElement('ul');
@@ -77,6 +76,6 @@ const appendPageLinks = (list, pageItems) => {
     e.target.classList.add('active');
 }
 
-
+showPage(studentItems, startingPage);
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
