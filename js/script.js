@@ -62,7 +62,7 @@ const appendPageLinks = (list, pageItems) => {
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
-    a.addEventListener('click', e => {
+    a.addEventListener('click', (e) => {
       e.target.classList.add('active');
       showPage(list, pageItems);
     });
@@ -77,5 +77,6 @@ const appendPageLinks = (list, pageItems) => {
 }
 
 showPage(studentItems, startingPage);
+
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
