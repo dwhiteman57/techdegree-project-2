@@ -15,6 +15,7 @@ const studentItems = document.querySelectorAll(".student-item");
 const studentDetails = document.querySelectorAll(".student-details");
 const page = document.querySelectorAll('.page');
 let startingPage = 1;
+let pageItems = 10;
 
 
 /***
