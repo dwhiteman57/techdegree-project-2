@@ -40,7 +40,7 @@ showPage(studentItems, startingPage);
 const appendPageLinks = (list, pageItems) => {
   // 1. Determine how many pages are needed for the list by dividing the total number
   //of list items by the max number of items per page
-  const pagesNeeded = Math.ciel(list.length / pageItems);
+  const pagesNeeded = Math.ceil(list.length / pageItems);
 
   // 2. Create a div, give it the pagination class, and append it to the .page div
   const paginationDiv = document.createElement('div');
@@ -62,7 +62,7 @@ const appendPageLinks = (list, pageItems) => {
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
-    a.addEventListener('Click', e => {
+    a.addEventListener('click', e => {
       e.target.classList.add('active');
       showPage(list, pageItems);
     });
