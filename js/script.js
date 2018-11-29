@@ -10,10 +10,10 @@ FSJS project 2 - List Filter and Pagination
    Add your global variables that store the DOM elements you will
    need to reference and/or manipulate.
 ***/
-const studentList = document.querySelector(".student-list");
-const studentItems = document.querySelectorAll(".student-item");
-const studentDetails = document.querySelectorAll(".student-details");
-const page = document.querySelectorAll('.page');
+const studentList = document.querySelector('.student-list');
+const studentItems = document.querySelectorAll('.student-item');
+const studentDetails = document.querySelectorAll('.student-details');
+const page = document.querySelector('.page');
 let startingPage = 1;
 let pageItems = 10;
 
@@ -36,9 +36,10 @@ const showPage = (list, page) => {
    functionality to the pagination buttons.
 ***/
 
-const appendPageLinks = (list, pageItems) => {
+const appendPageLinks = (list) => {
   // 1. Determine how many pages are needed for the list by dividing the total number
   //of list items by the max number of items per page
+
   const pagesNeeded = Math.ceil(list.length / 10);
 
   // 2. Create a div, give it the pagination class, and append it to the .page div
@@ -48,35 +49,33 @@ const appendPageLinks = (list, pageItems) => {
 
   // 3. Add a ul to the pagination div for every page
   const ul = document.createElement('ul');
-  let addUl = document.getElementsByClassName('pagination');
-  addUl.appendChild('ul');
+  paginationDiv.appendChild(ul);
 
   // 4. Add li and anchor(a) tags with the page number text
   for (let i = 1; i <= pagesNeeded; i++) {
     let li = document.createElement('li');
-    ul.appendChild(li);
+    document.getElementsByClassName('pagination')[0].appendChild(li);
+    li.innerText = i;
     let a = document.createElement('a');
-    li.appendChild(a);
+    document.getElementsByClassName('pagination')[0].appendChild(a);
+    a.innerText = i;
     }
-  a.innerText = i;
+
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
-    a.addEventListener('click', (e) => {
-      e.target.classList.add('active');
-      showPage(list, pageItems);
-    });
+
 
   // 6. Loop over pagination links to remove active class from all links
-    for (let i = 0; i < paginationDiv.length; i++) {
-      e.target.classList.remove('active');
-    }
+
+
   // 7. Add the active class to the link that was just clicked. You can identify that clicked
   // link using event.target
-    e.target.classList.add('active');
+
 }
 
 showPage(studentItems, startingPage);
+appendPageLinks(studentItems);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
