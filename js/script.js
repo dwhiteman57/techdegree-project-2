@@ -54,13 +54,13 @@ const appendPageLinks = (list) => {
   // 4. Add li and anchor(a) tags with the page number text
   for (let i = 1; i <= pagesNeeded; i++) {
     let li = document.createElement('li');
-    document.getElementsByClassName('pagination')[0].appendChild(li);
-    li.innerText = i;
-    let a = document.createElement('a');
-    document.getElementsByClassName('pagination')[0].appendChild(a);
-    a.innerText = i;
-    }
+    ul.appendChild(li);
 
+    let a = document.createElement('a');
+    a.href = '#';
+    a.innerText = i;
+    li.appendChild(a);
+    }
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
