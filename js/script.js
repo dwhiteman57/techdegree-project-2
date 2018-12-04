@@ -70,7 +70,7 @@ const appendPageLinks = (list) => {
 
   // 6. Loop over pagination links to remove active class from all links
       for (let i = 0; i <= a.length; i++) {
-        a.className.remove('active');
+        a[i].className.remove('active');
       }
 
   // 7. Add the active class to the link that was just clicked. You can identify that clicked
