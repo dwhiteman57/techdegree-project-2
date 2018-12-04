@@ -16,7 +16,8 @@ const studentDetails = document.querySelectorAll('.student-details');
 const page = document.querySelector('.page');
 let startingPage = 1;
 let pageItems = 10;
-
+const li = document.createElement('li');
+const a = document.createElement('a');
 
 /***
    Create the `showPage` function
@@ -53,29 +54,30 @@ const appendPageLinks = (list) => {
 
   // 4. Add li and anchor(a) tags with the page number text
   for (let i = 1; i <= pagesNeeded; i++) {
-    let li = document.createElement('li');
+    //let li = document.createElement('li'); Moved this into the global scope
     ul.appendChild(li);
 
     let a = document.createElement('a');
     a.href = '#';
     a.innerText = i;
     li.appendChild(a);
-    }
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
-
+    a.addEventListener('click', (e) => {
+      let currentPage = e.target.textContent;
+      showPage(studentItems, currentPage);
 
   // 6. Loop over pagination links to remove active class from all links
-
+      for (let i = 0; i <= a.length; i++) {
+        a.className.remove('active');
+      }
 
   // 7. Add the active class to the link that was just clicked. You can identify that clicked
   // link using event.target
-
+      e.target.className = 'active';
+      });
+    }
 }
-
 showPage(studentItems, startingPage);
 appendPageLinks(studentItems);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
