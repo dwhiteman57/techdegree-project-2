@@ -61,6 +61,9 @@ const appendPageLinks = (list) => {
     a.href = '#';
     a.innerText = i;
     li.appendChild(a);
+    if (i === 1) {
+        a.className = 'active';
+    }
 
   // 5. Add an event listener to each (a) tag. When they are clicked call the showPage
   // function to display the appropriate page
@@ -70,8 +73,9 @@ const appendPageLinks = (list) => {
       const links = document.querySelectorAll('a');
 
   // 6. Loop over pagination links to remove active class from all links
-      for (let i = 0; i <= links.length; i++) {
-        links[i].className.remove('active');
+      const pageLinks = document.querySelectorAll('.pagination ul li a');
+      for (let i = 0; i < pageLinks.length; i++) {
+        pageLinks[i].classList.remove('active');
       }
 
   // 7. Add the active class to the link that was just clicked. You can identify that clicked
