@@ -7,7 +7,7 @@ FSJS project 2 - List Filter and Pagination
 
 
 /***
-   Add your global variables that store the DOM elements you will
+   Added all my global variables that store the DOM elements I will
    need to reference and/or manipulate.
 ***/
 const studentList = document.querySelector('.student-list');
@@ -84,5 +84,7 @@ const appendPageLinks = (list) => {
       });
     }
 }
+
+//Call showPage and appendPageLinks functions 
 showPage(studentItems, startingPage);
 appendPageLinks(studentItems);
